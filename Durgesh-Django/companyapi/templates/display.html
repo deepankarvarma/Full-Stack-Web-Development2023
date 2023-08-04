@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blackrock Test Entries</title>
+</head>
+<body>
+    <h1>Blackrock Test Entries</h1>
+    <ul>
+        {% for entry in blackrock_entries %}
+            <li>{{ entry.field1 }} - {{ entry.field2 }} - ...</li>
+            <!-- Replace field1, field2, etc. with the actual field names from your model -->
+        {% endfor %}
+    </ul>
+</body>
+</html>
