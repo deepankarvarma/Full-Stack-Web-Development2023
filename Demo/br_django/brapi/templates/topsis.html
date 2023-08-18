@@ -1,0 +1,593 @@
+{% load tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src=
+"https://cdn.tailwindcss.com">
+    </script>
+  <title>Topsis</title>
+  <link rel="icon" type="image/x-icon" href="{% static 'br-logo.svg' %}">
+
+  {% tailwind_css %}
+</head>
+<script>
+  function toggleMenu() {
+    const container = document.getElementById('profile_icon');
+    container.classList.toggle('hidden');
+  }
+  function toggleDB() {
+    const container = document.getElementById('db-title');
+    container.classList.toggle('hidden');
+  }
+</script>
+<style>
+  .text-zoom {
+        transition: transform 0.3s ease, color 0.3s ease; /* Add color transition for smoother color change */
+    }
+    .text-zoom:hover {
+        transform: scale(1.03); /* Adjust the scale value as needed */
+        color: #000000;
+        font: semibold
+    }
+</style>
+<body>
+  <!--
+  This example requires updating your template:
+
+  
+  <html class="h-full bg-gray-100">
+  <body class="h-full">
+  
+-->
+<div class="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 justify-center">
+  <div class="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
+    <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"></div>
+  </div>
+  <div class="absolute left-[max(45rem,calc(50%+8rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
+    <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"></div>
+  </div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+  <a href="#" id="gainersBtn" class="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"> <span aria-hidden="true">&larr;</span></a>
+  <p id="textContent" class="text-sm leading-6 text-gray-900">
+    <strong class="font-semibold">Top Gainers</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>Join us in Denver from June 7 – 9 to see what’s coming next.
+  </p>
+  <a href="#" id="losersBtn" class="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"> <span aria-hidden="true">&rarr;</span></a>
+</div>
+
+<!-- ... (other code) ... -->
+</div>
+
+<nav class="bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button-->
+        <button onclick="toggleDB()" type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="absolute -inset-0.5"></span>
+          <span class="sr-only">Open main menu</span>
+          <!--
+            Icon when menu is closed.
+  
+            Menu open: "hidden", Menu closed: "block"
+          -->
+          <svg  class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <!--
+            Icon when menu is open.
+  
+            Menu open: "block", Menu closed: "hidden"
+          -->
+          <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex flex-shrink-0 items-center">
+          <img class="h-8 w-auto" src="{% static 'br-logo.svg' %}" alt="Your Company">
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <!-- <a href="" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a> -->
+            <a href="spc" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">SPC</a>
+            <a href="sip" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calculator</a>
+            <a href="user" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Dashboard</a>
+            <a href="quiz" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Risk Cal.</a>
+            <a href="feature" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Financial Assistant</a>
+  
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+          <span class="absolute -inset-1.5"></span>
+          <span class="sr-only">View notifications</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+          </svg>
+        </button>
+  
+        <!-- Profile dropdown -->
+        <div class="relative ml-3">
+          <div>
+            <button onclick="toggleMenu()"  type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+              <span class="absolute -inset-1.5"></span>
+              <span class="sr-only">Open user menu</span>
+              <img class="h-8 w-8 rounded-full" src="{% static 'br-logo.svg'%}" alt="">
+            </button>
+          </div>
+  
+          <!--
+            Dropdown menu, show/hide based on menu state.
+  
+            Entering: "transition ease-out duration-100"
+              From: "transform opacity-0 scale-95"
+              To: "transform opacity-100 scale-100"
+            Leaving: "transition ease-in duration-75"
+              From: "transform opacity-100 scale-100"
+              To: "transform opacity-0 scale-95"
+          -->
+          <div id="profile_icon" class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+           
+            <a href="userprofile" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+            <a href="out" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div id="db-title" class="hidden sm:hidden" id="mobile-menu">
+    <div class="space-y-1 px-2 pb-3 pt-2">
+      <a href="spc" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">SPC</a>
+      <a href="sip" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calculator</a>
+      <a href="user" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Dashboard</a>
+      <a href="quiz" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Risk Calculator</a>
+      <a href="feature" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Financial Assistant</a>
+    </div>
+  </div>
+  </nav>
+
+
+
+
+
+
+  <div class="mt-4 mb-4 flex justify-center items-center background-image: linear-gradient(to right, #ff80b5, #9089fc) ">
+    <div class="relative flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 justify-center w-screen">
+      
+      <div class="absolute left-[max(45rem,calc(50%+8rem))] top-1/2 z-10 translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
+        <div class="aspect-[577/310] w-max bg-gradient-to-r from-[#ca0051] to-[#090086] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"></div>
+      </div>
+
+      
+      <div class="flex flex-wrap justify-center gap-4">
+        <button class="w-24 md:w-24 lg:w-32 xl:w-40 inline-flex items-center justify-center rounded-md bg-[#1f2937] hover:bg-gray-100 hover:text-[#1f2937] px-4 py-2 text-sm md:text-base font-medium text-gray-300 ring-1 ring-inset ring-gray-900/20 transition duration-300 ease-in-out">Stocks</button>
+        <button class="w-24 md:w-32 lg:w-40 inline-flex items-center justify-center rounded-md bg-[#1f2937] hover:bg-gray-100 hover:text-[#1f2937] px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-medium text-gray-300 ring-1 ring-inset ring-gray-900/10 transition duration-300 ease-in-out">Forex</button>
+        <button class="w-24 md:w-32 lg:w-40 inline-flex items-center justify-center rounded-md bg-[#1f2937] hover:bg-gray-100 hover:text-[#1f2937] px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-medium text-gray-300 ring-1 ring-inset ring-gray-900/10 transition duration-300 ease-in-out">Crypto</button>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <div class="flex items-center mt-20 w-full justify-center">
+    <div class="bg-gray-200 p-8 rounded-lg shadow-xl w-3/4">
+      <h2 class="text-3xl md:text-5xl font-semibold mb-10 text-center text-gray-800">Multiple Criterion Decision Making</h2>
+      <form class="space-y-6" action="topsis" method="post">
+        {% csrf_token %}
+        <!-- Repeat the following block for each set of stock inputs -->
+        <div class="flex justify-center space-x-6">
+          <div class="w-1/2">
+            <label for="stock1" class="block text-xl font-semibold text-gray-800 text-center">Stock 1</label>
+            <input id="stock1" name="stock1" type="text" required class="mt-2 block w-full rounded-md border border-gray-300 py-2 px-4 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-indigo-600 focus:border-transparent focus:ring-opacity-50 sm:text-sm">
+          </div>
+          <div class="w-1/2">
+            <label for="stock2" class="block text-xl font-semibold text-gray-800 text-center">Stock 2</label>
+            <input id="stock2" name="stock2" type="text" required class="mt-2 block w-full rounded-md border border-gray-300 py-2 px-4 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-indigo-600 focus:border-transparent focus:ring-opacity-50 sm:text-sm">
+          </div>
+        </div>
+        <div class="flex justify-center space-x-6">
+          <div class="w-1/2">
+            <label for="stock3" class="block text-xl font-semibold text-gray-800 text-center">Stock 3</label>
+            <input id="stock3" name="stock3" type="text" required class="mt-2 block w-full rounded-md border border-gray-300 py-2 px-4 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-indigo-600 focus:border-transparent focus:ring-opacity-50 sm:text-sm">
+          </div>
+          <div class="w-1/2">
+            <label for="stock4" class="block text-xl font-semibold text-gray-800 text-center">Stock 4</label>
+            <input id="stock4" name="stock4" type="text" required class="mt-2 block w-full rounded-md border border-gray-300 py-2 px-4 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-indigo-600 focus:border-transparent focus:ring-opacity-50 sm:text-sm">
+          </div>
+        </div>
+        <div class="flex justify-center space-x-6">
+          <div class="w-1/2">
+            <label for="stock5" class="block text-xl font-semibold text-gray-800 text-center">Stock 5</label>
+            <input id="stock5" name="stock5" type="text" required class="mt-2 block w-full rounded-md border border-gray-300 py-2 px-4 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-indigo-600 focus:border-transparent focus:ring-opacity-50 sm:text-sm">
+          </div>
+          <div class="w-1/2">
+            <label for="stock6" class="block text-xl font-semibold text-gray-800 text-center">Stock 6</label>
+            <input id="stock6" name="stock6" type="text" required class="mt-2 block w-full rounded-md border border-gray-300 py-2 px-4 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-indigo-600 focus:border-transparent focus:ring-opacity-50 sm:text-sm">
+          </div>
+        </div>
+        <!-- Repeat similar code for other stock inputs -->
+        <div class="flex justify-center">
+          <input type="submit" value="Calculate" class="font-semibold mt-6 w-1/2 rounded-md py-2 text-white shadow-md bg-indigo-600 hover:bg-indigo-700 transition-colors duration-300">
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+<div class="w-1/3 mx-auto">
+  <table class="mt-20">
+    {% if sorted_dict.items %}
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+  </tr>
+  {% endif %}
+      {% for key, value in sorted_dict.items %}
+      
+      <tr>
+          <td><strong>{{ key }}</strong></td>
+          <td>{{ value }}</td>
+      </tr>
+      {% endfor %}
+  </table>
+</div>
+
+
+
+<section class="text-gray-600 body-font">
+  <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+      <img class="rounded-lg shadow-2xl transform scale-x-[-1] object-cover object-center" alt="hero" src="{% static 'MCDA.png' %}">
+    </div>
+    <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+      <h1 class="p-12 title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Confused about what is MCDA?
+      </h1>
+      <p class="p-10 text-justify font-normal mb-8 leading-relaxed text-zoom">Multiple-criteria decision-making (MCDM) or multiple-criteria decision analysis (MCDA) is a sub-discipline of operations research that explicitly evaluates multiple conflicting criteria in decision making (both in daily life and in settings such as business, government and medicine). MCDA is a general term for methods developed to support complex decision-making situations with multiple and often conflicting objectives that stakeholders groups and decision-makers value differently. In environmental management, MCDA methods are increasingly used to structure participatory integrated assessment and valuation processes which combine information about decision alternatives and their consequences with information about stakeholder and/or decision-maker values and preferences.</p>
+      <div class="flex justify-center">
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer class="bg-white dark:bg-gray-900">
+    <div class="mx-auto max-w-screen-xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-md">
+        <strong
+          class="block text-center text-xl font-bold text-gray-900 dark:text-white sm:text-3xl"
+        >
+          Want us to help you with the blockbuster financial planning?
+        </strong>
+  
+        <!-- <form class="mt-6">
+          <div class="relative max-w-lg">
+            <label class="sr-only" for="email"> Email </label>
+  
+            <input
+              class="w-full rounded-full border-gray-200 bg-gray-100 p-4 pe-32 text-sm font-medium dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+              id="email"
+              type="email"
+              placeholder="john@doe.com"
+            />
+  
+            <button
+              class="absolute end-1 top-1/2 -translate-y-1/2 rounded-full bg-blue-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-700"
+            >
+              Subscribe
+            </button>
+          </div>
+        </form> -->
+        
+      </div>
+
+
+      <div
+      class=" mt-5  flex flex-col items-center gap-4 rounded-lg bg-indigo-600 p-6 shadow-lg sm:flex-row sm:justify-between"
+    >
+      <strong class="text-xl text-white sm:text-xl">
+        Make Your Next Career Move!
+      </strong>
+
+      <a
+        class="inline-flex items-center gap-2 rounded-full border border-white bg-white px-8 py-3 text-indigo-600 hover:bg-transparent hover:text-white focus:outline-none focus:ring active:bg-white/90"
+        href="/"
+      >
+        <span class="text-sm font-medium"> Let's Get Started </span>
+
+        <svg
+          class="h-5 w-5 rtl:rotate-180"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          />
+        </svg>
+      </a>
+    </div>
+      
+      <div class="w-full mt-8 text-center items-center">
+        <a class="flex title-font font-medium items-center justify-center text-gray-900">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-indigo-500 p-2 bg-white rounded-full animate-bounce items-center" viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+          </svg>
+          <span class="text-xl">Pfinex</span>
+        </a>
+        <p class="text-sm text-center text-gray-500">Your financial partner for success.</p>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-32">
+        <div class="mx-auto max-w-sm lg:max-w-none">
+          <p
+            class="mt-4 text-center text-gray-500 dark:text-gray-400 lg:text-left lg:text-lg"
+          >
+          Discover the power of financial freedom with Pfinex. Our mission is to provide innovative solutions for your financial success
+          </p>
+  
+          <div class="mt-6 flex justify-center gap-4 lg:justify-start">
+            <a
+              class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+              href=""
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="sr-only"> Facebook </span>
+  
+              <svg
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+  
+            <a
+              class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+              href=""
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="sr-only"> Instagram </span>
+  
+              <svg
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+  
+            <a
+              class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+              href=""
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="sr-only"> Twitter </span>
+  
+              <svg
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                />
+              </svg>
+            </a>
+  
+            <a
+              class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+              href=""
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="sr-only"> GitHub </span>
+  
+              <svg
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+  
+            <a
+              class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+              href=""
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="sr-only"> Dribbble </span>
+  
+              <svg
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+  
+        <div
+          class="grid grid-cols-1 gap-8 text-center lg:grid-cols-3 lg:text-left"
+        >
+          <div>
+            <strong class="font-medium text-gray-900 dark:text-white">
+              Services
+            </strong>
+  
+            <ul class="mt-6 space-y-1">
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                  href="/"
+                >
+                  Market Stat
+                </a>
+              </li>
+  
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                  href="/"
+                >
+                  Fin. Planning
+                </a>
+              </li>
+  
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                  href="/"
+                >
+                  Calculators
+                </a>
+              </li>
+  
+
+            </ul>
+          </div>
+  
+          <div>
+            <strong class="font-medium text-gray-900 dark:text-white">
+              About
+            </strong>
+  
+            <ul class="mt-6 space-y-1">
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                  href="/"
+                >
+                  About
+                </a>
+              </li>
+  
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                  href="/"
+                >
+                  Careers
+                </a>
+              </li>
+  
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                  href="/"
+                >
+                  Our Team
+                </a>
+              </li>
+            </ul>
+          </div>
+  
+          <div>
+            <strong class="font-medium text-gray-900 dark:text-white">
+              Support
+            </strong>
+  
+            <ul class="mt-6 space-y-1">
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                  href="/"
+                >
+                  FAQs
+                </a>
+              </li>
+  
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                  href="/"
+                >
+                  Contact
+                </a>
+              </li>
+  
+              <li>
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                  href="/"
+                >
+                  Chat Bot
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  
+      <div class="mt-16 border-t border-gray-100 pt-8 dark:border-gray-800">
+        <p class="text-center text-xs/relaxed text-gray-500 dark:text-gray-400">
+          © Pfinex 2023. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  
+
+
+  
+</body>
+</html>

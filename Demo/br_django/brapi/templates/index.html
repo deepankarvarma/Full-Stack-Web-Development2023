@@ -1,0 +1,866 @@
+{% load tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pFineX </title>
+    <link rel="icon" type="image/x-icon" href="{% static 'br-logo.svg' %}">
+
+    {% tailwind_css %}
+    <script>
+      window.chatbaseConfig = {
+        chatbotId: "ZeC7OqeykpMPdRFVN8Ekw",
+      }
+    </script>
+    <script
+      src="https://www.chatbase.co/embed.min.js"
+      id="ZeC7OqeykpMPdRFVN8Ekw"
+      defer>
+    </script>
+    <script>
+
+      window.onload = function() {
+        // Show the loading screen for 2 seconds
+        setTimeout(function() {
+          document.querySelector('.loading-screen').style.display = 'none';
+        }, 400); // Adjust the duration as needed
+      };
+      
+      function openMenu() {
+        const closeButton = document.getElementById('close-menu');
+        closeButton.classList.remove('hidden');
+      }
+      function cancelClose() {
+  clearTimeout(dropdownTimeout);
+}
+      function closeMenu() {
+        const closeButton = document.getElementById('close-menu');
+        closeButton.classList.add('hidden');
+      }
+      function toggledrop() {
+    const container = document.getElementById('dropboxtoggle');
+    container.classList.toggle('hidden');
+  
+  }
+  function closeDropdown() {
+  dropdownTimeout = setTimeout(function() {
+    const container = document.getElementById('dropboxtoggle');
+    container.classList.toggle('hidden');
+  }, 50); // Adjust the delay as needed
+}
+    </script>
+    <style>
+      /* CSS for the Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.877);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it's above other content */
+}
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+    </style>
+  </head>
+
+  <body class="animate-fadeInUp">
+    <script>
+      window.onload = function() {
+        // Show the loading screen for 2 seconds
+        setTimeout(function() {
+          document.querySelector('.loading-screen').style.display = 'none';
+        }, 400); // Adjust the duration as needed
+      };
+      function openMenu() {
+        const closeButton = document.getElementById('close-menu');
+        closeButton.classList.remove('hidden');
+      }
+      function cancelClose() {
+  clearTimeout(dropdownTimeout);
+}
+      function closeMenu() {
+        const closeButton = document.getElementById('close-menu');
+        closeButton.classList.add('hidden');
+      }
+      function toggledrop() {
+    const container = document.getElementById('dropboxtoggle');
+    container.classList.toggle('hidden');
+  }
+  function closeDropdown() {
+  dropdownTimeout = setTimeout(function() {
+    const container = document.getElementById('dropboxtoggle');
+    container.classList.toggle('hidden');
+  }, 50); // Adjust the delay as needed
+}
+    </script>
+    <div class="loading-screen">
+      <div class="loader"></div>
+    </div>
+      <header class="absolute inset-x-0 top-0 z-50">
+        <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+          <div class="flex lg:flex-1">
+            <a href="#" class="-m-1.5 p-1.5">
+              <span class="sr-only">Pfinex</span>
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              width="15%" viewBox="0 0 339 352" enable-background="new 0 0 339 352" xml:space="preserve">
+         <path fill="#00053E" opacity="1.000000" stroke="none" 
+             d="
+         M222.000000,353.000000 
+             C148.000015,353.000000 74.500023,353.000000 1.000030,353.000000 
+             C1.000020,235.666702 1.000020,118.333405 1.000010,1.000077 
+             C113.999947,1.000051 226.999893,1.000051 339.999878,1.000026 
+             C339.999939,118.333260 339.999939,235.666519 339.999969,352.999878 
+             C300.833344,353.000000 261.666656,353.000000 222.000000,353.000000 
+         M147.789963,271.928345 
+             C147.842880,273.583313 147.895798,275.238312 147.648285,277.664551 
+             C147.648285,282.057007 147.648285,286.449463 147.648285,291.405762 
+             C150.110062,290.844757 151.915405,290.631195 153.576599,290.023499 
+             C166.678513,285.230621 179.670013,280.116608 192.884308,275.661438 
+             C197.060394,274.253448 198.106918,272.258636 198.093018,268.197662 
+             C197.982468,235.895523 198.069366,203.592728 198.075775,171.290146 
+             C198.076126,169.535492 197.898422,167.780807 197.793625,165.841690 
+             C191.724640,165.841690 186.236038,165.792725 180.748795,165.858047 
+             C176.754745,165.905563 176.043671,164.453308 178.039398,161.025436 
+             C184.046585,150.707382 190.074997,140.395004 195.741547,129.889679 
+             C197.313736,126.974998 198.420303,123.400047 198.435196,120.122078 
+             C198.520645,101.330177 198.220932,82.536392 198.024033,63.743542 
+             C198.007523,62.166821 197.785248,60.592258 197.574844,57.975582 
+             C180.894699,63.920315 165.021729,69.577377 148.415359,75.490662 
+             C147.977509,79.011887 147.171326,82.531868 147.159363,86.054543 
+             C147.051819,117.704826 147.090866,149.355591 147.065918,181.006210 
+             C147.062836,184.929184 147.323288,188.702560 151.141907,191.851395 
+             C156.932358,202.074341 162.722809,212.297287 168.513260,222.520233 
+             C168.141098,223.054688 167.768936,223.589127 167.396774,224.123581 
+             C164.320831,224.123581 161.244705,224.144424 158.168961,224.119965 
+             C144.894531,224.014404 147.426697,223.279755 147.377853,234.872574 
+             C147.326950,246.954483 147.737106,259.038330 147.789963,271.928345 
+         M272.479248,159.500183 
+             C272.497437,136.524582 272.513855,113.548973 272.534882,90.573364 
+             C272.540466,84.482109 271.234283,83.890030 265.340729,86.123543 
+             C255.011551,90.038033 244.251297,92.931656 234.197983,97.429443 
+             C220.037079,103.764923 220.892731,97.956642 220.785797,114.953598 
+             C220.743820,121.624908 220.946640,127.957779 225.033691,133.962341 
+             C230.590912,142.126785 235.254654,150.903946 240.210129,159.471252 
+             C242.339050,163.151855 241.276733,164.948395 236.887634,165.103836 
+             C233.231552,165.233337 229.558487,165.216324 225.905914,165.021225 
+             C222.053375,164.815475 220.690063,166.336456 220.715546,170.262207 
+             C220.876572,195.068298 220.809891,219.875748 220.878510,244.682587 
+             C220.894318,250.401245 221.612595,250.798126 226.940887,248.848877 
+             C240.181564,244.005051 253.413528,239.136215 266.690277,234.392883 
+             C270.795197,232.926315 272.682068,230.611298 272.630035,225.929550 
+             C272.387543,204.121902 272.495209,182.310364 272.479248,159.500183 
+         M73.457298,147.499756 
+             C73.457298,186.644730 73.457298,225.789719 73.457298,264.932007 
+             C75.100266,264.932007 75.640991,265.069092 76.075562,264.912201 
+             C91.227020,259.441895 106.393227,254.009674 121.466400,248.330627 
+             C122.732628,247.853546 124.013817,245.759491 124.165558,244.299957 
+             C124.576927,240.343124 124.482201,236.321686 124.410782,232.329041 
+             C124.249512,223.313507 125.333305,224.292175 116.423050,224.193527 
+             C112.043877,224.145050 107.663719,224.185104 102.567299,224.185104 
+             C103.432800,222.148926 103.719231,221.224091 104.190163,220.405350 
+             C109.822327,210.613663 115.598869,200.902328 121.059853,191.016510 
+             C122.608894,188.212326 124.151756,184.919846 124.180786,181.837021 
+             C124.429848,155.379196 124.336533,128.918091 124.304695,102.458008 
+             C124.303802,101.717499 123.847527,100.977531 123.564682,100.119247 
+             C122.498268,100.276993 121.648804,100.264328 120.900932,100.533714 
+             C106.307602,105.790459 91.685387,110.973541 77.199272,116.512222 
+             C75.583488,117.130005 73.808327,119.761703 73.723129,121.536987 
+             C73.324516,129.843048 73.492195,138.176254 73.457298,147.499756 
+         z"/>
+         <path fill="#3E89F9" opacity="1.000000" stroke="none" 
+             d="
+         M149.148743,75.234436 
+             C165.021729,69.577377 180.894699,63.920315 197.574844,57.975582 
+             C197.785248,60.592258 198.007523,62.166821 198.024033,63.743542 
+             C198.220932,82.536392 198.520645,101.330177 198.435196,120.122078 
+             C198.420303,123.400047 197.313736,126.974998 195.741547,129.889679 
+             C190.074997,140.395004 184.046585,150.707382 178.039398,161.025436 
+             C176.043671,164.453308 176.754745,165.905563 180.748795,165.858047 
+             C186.236038,165.792725 191.724640,165.841690 197.793625,165.841690 
+             C197.898422,167.780807 198.076126,169.535492 198.075775,171.290146 
+             C198.069366,203.592728 197.982468,235.895523 198.093018,268.197662 
+             C198.106918,272.258636 197.060394,274.253448 192.884308,275.661438 
+             C179.670013,280.116608 166.678513,285.230621 153.576599,290.023499 
+             C151.915405,290.631195 150.110062,290.844757 147.648285,291.405762 
+             C147.648285,286.449463 147.648285,282.057007 147.882233,277.583008 
+             C148.614456,278.351776 149.112701,279.202148 149.610962,280.052490 
+             C150.082321,279.870148 150.553696,279.687805 151.025070,279.505463 
+             C149.998611,276.710754 148.972137,273.916046 147.945679,271.121338 
+             C147.737106,259.038330 147.326950,246.954483 147.377853,234.872574 
+             C147.426697,223.279755 144.894531,224.014404 158.168961,224.119965 
+             C161.244705,224.144424 164.320831,224.123581 167.396774,224.123581 
+             C167.768936,223.589127 168.141098,223.054688 168.513260,222.520233 
+             C162.722809,212.297287 156.932358,202.074341 151.059052,191.102066 
+             C150.247513,185.996246 148.938858,181.647202 148.882767,177.282074 
+             C148.468552,145.041794 148.286179,112.798409 148.108978,80.555565 
+             C148.099258,78.783821 148.786118,77.008232 149.148743,75.234436 
+         M149.009521,229.225586 
+             C149.009521,240.320572 149.009521,251.415543 149.009521,262.510529 
+             C149.674774,262.502899 150.340027,262.495300 151.005280,262.487671 
+             C151.005280,254.058609 151.068466,245.628906 150.980896,237.200760 
+             C150.930695,232.369263 151.330414,227.887894 157.216858,226.095398 
+             C156.802811,225.579575 156.388763,225.063751 155.974701,224.547928 
+             C153.662933,225.839340 151.351151,227.130768 149.009521,229.225586 
+         z"/>
+         <path fill="#1D4DFA" opacity="1.000000" stroke="none" 
+             d="
+         M272.478424,160.000198 
+             C272.495209,182.310364 272.387543,204.121902 272.630035,225.929550 
+             C272.682068,230.611298 270.795197,232.926315 266.690277,234.392883 
+             C253.413528,239.136215 240.181564,244.005051 226.940887,248.848877 
+             C221.612595,250.798126 220.894318,250.401245 220.878510,244.682587 
+             C220.809891,219.875748 220.876572,195.068298 220.715546,170.262207 
+             C220.690063,166.336456 222.053375,164.815475 225.905914,165.021225 
+             C229.558487,165.216324 233.231552,165.233337 236.887634,165.103836 
+             C241.276733,164.948395 242.339050,163.151855 240.210129,159.471252 
+             C235.254654,150.903946 230.590912,142.126785 225.033691,133.962341 
+             C220.946640,127.957779 220.743820,121.624908 220.785797,114.953598 
+             C220.892731,97.956642 220.037079,103.764923 234.197983,97.429443 
+             C244.251297,92.931656 255.011551,90.038033 265.340729,86.123543 
+             C271.234283,83.890030 272.540466,84.482109 272.534882,90.573364 
+             C272.513855,113.548973 272.497437,136.524582 272.478424,160.000198 
+         z"/>
+         <path fill="#47C7E3" opacity="1.000000" stroke="none" 
+             d="
+         M73.457413,146.999756 
+             C73.492195,138.176254 73.324516,129.843048 73.723129,121.536987 
+             C73.808327,119.761703 75.583488,117.130005 77.199272,116.512222 
+             C91.685387,110.973541 106.307602,105.790459 120.900932,100.533714 
+             C121.648804,100.264328 122.498268,100.276993 123.564682,100.119247 
+             C123.847527,100.977531 124.303802,101.717499 124.304695,102.458008 
+             C124.336533,128.918091 124.429848,155.379196 124.180786,181.837021 
+             C124.151756,184.919846 122.608894,188.212326 121.059853,191.016510 
+             C115.598869,200.902328 109.822327,210.613663 104.190163,220.405350 
+             C103.719231,221.224091 103.432800,222.148926 102.567299,224.185104 
+             C107.663719,224.185104 112.043877,224.145050 116.423050,224.193527 
+             C125.333305,224.292175 124.249512,223.313507 124.410782,232.329041 
+             C124.482201,236.321686 124.576927,240.343124 124.165558,244.299957 
+             C124.013817,245.759491 122.732628,247.853546 121.466400,248.330627 
+             C106.393227,254.009674 91.227020,259.441895 76.075562,264.912201 
+             C75.640991,265.069092 75.100266,264.932007 73.457298,264.932007 
+             C73.457298,225.789719 73.457298,186.644730 73.457413,146.999756 
+         z"/>
+         <path fill="#285EE5" opacity="1.000000" stroke="none" 
+             d="
+         M148.782043,75.362549 
+             C148.786118,77.008232 148.099258,78.783821 148.108978,80.555565 
+             C148.286179,112.798409 148.468552,145.041794 148.882767,177.282074 
+             C148.938858,181.647202 150.247513,185.996246 150.995239,190.760361 
+             C147.323288,188.702560 147.062836,184.929184 147.065918,181.006210 
+             C147.090866,149.355591 147.051819,117.704826 147.159363,86.054543 
+             C147.171326,82.531868 147.977509,79.011887 148.782043,75.362549 
+         z"/>
+         <path fill="#4293F7" opacity="1.000000" stroke="none" 
+             d="
+         M147.867828,271.524841 
+             C148.972137,273.916046 149.998611,276.710754 151.025070,279.505463 
+             C150.553696,279.687805 150.082321,279.870148 149.610962,280.052490 
+             C149.112701,279.202148 148.614456,278.351776 148.032455,277.197357 
+             C147.895798,275.238312 147.842880,273.583313 147.867828,271.524841 
+         z"/>
+         <path fill="#4293F7" opacity="1.000000" stroke="none" 
+             d="
+         M149.024445,228.823883 
+             C151.351151,227.130768 153.662933,225.839340 155.974701,224.547928 
+             C156.388763,225.063751 156.802811,225.579575 157.216858,226.095398 
+             C151.330414,227.887894 150.930695,232.369263 150.980896,237.200760 
+             C151.068466,245.628906 151.005280,254.058609 151.005280,262.487671 
+             C150.340027,262.495300 149.674774,262.502899 149.009521,262.510529 
+             C149.009521,251.415543 149.009521,240.320572 149.024445,228.823883 
+         z"/>
+         </svg>
+            </a>
+          </div>
+          <div id="open-menu" onclick="openMenu()" class="flex lg:hidden">
+            <button type="button"  class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+              <span class="sr-only">Open main menu</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          </div>
+            <div class="hidden lg:flex lg:gap-x-12">
+              <div class="relative group">
+                <button onmouseover="toggledrop()" onmouseout="closeDropdown()" type="button" class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 hover:text-gray-500" aria-expanded="false">
+                  Features
+                  <!-- <svg  class="h-5 w-5 flex-none text-gray-400 group-hover:text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                  </svg> -->
+                </button>
+                <!-- 'Product' flyout menu -->
+                <div id="dropboxtoggle" onmouseover="cancelClose()" onmouseout="closeDropdown()" class="hidden absolute -left-16 top-full z-10 mt-3 w-44 overflow-hidden rounded-lg bg-white drop-shadow-2lg shadow-lg">
+                  <div class="p-2 "> 
+                    <a href="login" class="text-center mb-1 block w-full font-semibold text-gray-900 hover:bg-gray-300 hover:shadow-md transform transition-transform hover:scale-105 rounded-md pt-1 pb-1">
+                      Financial AI Assistant
+                      <span class="absolute inset-0"></span>
+                    </a>
+                    <a href="topsis" class="text-center mt-1 mb-1 block w-full font-semibold text-gray-900 hover:bg-gray-300 hover:shadow-md transform transition-transform hover:scale-105 rounded-md pt-1 pb-1">
+                      MCDM
+                      <span class="absolute inset-0"></span>
+                    </a>
+                    <a href="spc" class="text-center mt-1 mb-1 block w-full font-semibold text-gray-900 hover:bg-gray-300 hover:shadow-md transform transition-transform hover:scale-105 rounded-md pt-1 pb-1">
+                      SPC
+                      <span class="absolute inset-0"></span>
+                    </a>
+                    <!-- <button class="mt-2 block w-full font-semibold text-gray-900 hover:bg-gray-300 hover:shadow-md transform transition-transform hover:scale-105 rounded-md pt-1 pb-1">
+                      Analytics
+                      <span class="absolute inset-0"></span>
+                    </button> -->
+                    <!-- Add more menu items as needed -->
+                  </div>
+                </div>
+              </div>
+          <a href="#strategy" class="text-sm font-semibold leading-6 text-gray-900">Strategy</a>
+            <a href="#testimonial" class="text-sm font-semibold leading-6 text-gray-900">Testimonials</a>
+            <a href="#about" class="text-sm font-semibold leading-6 text-gray-900">About</a>
+          </div>
+          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a href="login" class="text-sm font-semibold leading-6 hover:text-gray-400 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </nav>
+        <!-- Mobile menu, show/hide based on menu open state. -->
+        <!-- Background backdrop, show/hide based on slide-over state. -->
+        <div id="close-menu" onclick="closeMenu()" class="hidden lg:hidden" role="dialog" aria-modal="true">
+          <div class="fixed inset-0 z-50"></div>
+          <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div class="flex items-center justify-between">
+              <a href="#" class="-m-1.5 p-1.5">
+                <span class="sr-only">Your Company</span>
+                <img class="h-8 w-auto" src="{% static 'br-logo.svg'}" alt="">
+              </a>
+              <button aria-label="toggle_off()" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" id="hamburger-button">
+                <span class="sr-only">Close menu</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div class="mt-6 flow-root">
+              <div class="-my-6 divide-y divide-gray-500/10">
+                <div class="space-y-2 py-6">
+                  <a href="login" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
+                  <a href="#about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">About</a>
+                  <a href="#strategy" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Strategy</a>
+                  <a href="#testimonial" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Testimonial</a>
+                </div>
+                <div class="py-6">
+                  <a href="login" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+        <div class="relative isolate px-6 pt-14 lg:px-8">
+          <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+            <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#da709c] to-[#1e1594] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+          </div>
+          <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+            
+            <div class="text-center">
+              <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Transforming Finances, Crafting Futures</h1>
+              <p class="mt-6 text-lg leading-8 text-gray-600">At Pfinex, we don't just manage money; we architect financial legacies. Experience a higher echelon of wealth empowerment through personalized strategies and unwavering dedication to your prosperity.</p>
+              <div class="mt-10 flex items-center justify-center gap-x-6">
+                <a href="signup" value="Get started" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get Started</a>
+                
+              </div>
+            </div>
+          </div>
+          <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+            <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-50 sm:left-[calc(50%+36rem)] sm:w-[50rem]" style="clip-path: polygon(24.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 50%, 27.5% 76.7%, 50% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white">
+        <div class="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+            <div class="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
+              <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"></div>
+            </div>
+            <div class="absolute left-[max(45rem,calc(50%+8rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
+              <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"></div>
+            </div>
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <p class="text-sm leading-6 text-gray-900">
+                <strong class="font-semibold">Pfinex 2023</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>Embark on an enriching financial voyage with the Pfinex family, as we navigate towards your wealth's true potential.
+              </p>
+              <a href="quiz" class="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">Risk Tolerance Calculator <span aria-hidden="true">&rarr;</span></a>
+            </div>
+            <div class="flex flex-1 justify-end">
+              <button type="button" class="-m-3 p-3 focus-visible:outline-offset-[-4px]">
+                <span class="sr-only">Dismiss</span>
+                <svg class="h-5 w-5 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                </svg>
+              </button>
+            </div>
+          </div>  
+      <div id="about" class="overflow-hidden bg-white py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+            <div class="lg:pr-8 lg:pt-4">
+              <div class="lg:max-w-lg">
+                <h2 class="text-base font-semibold leading-7 text-indigo-600">Grow Faster</h2>
+                <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Exploring Our Expertise</p>
+                <p class="mt-6 text-lg leading-8 text-gray-600">At Pfinex, we are more than financial advisors; we are architects of your financial success. With a passion for precision and a commitment to personalized guidance, we craft bespoke strategies that navigate the complexities of wealth management. Our seasoned experts blend innovation with time-tested wisdom, ensuring your financial journey is marked by informed decisions, tailored solutions, and a steadfast partnership. Whether you're aiming to grow, protect, or transition your wealth, Pfinex is your compass in an ever-changing financial landscape.</p>
+                <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+                  <div class="relative pl-9">
+                    <dt class="inline font-semibold text-gray-900">
+                      <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 01-1.44-8.765 4.5 4.5 0 018.302-3.046 3.5 3.5 0 014.504 4.272A4 4 0 0115 17H5.5zm3.75-2.75a.75.75 0 001.5 0V9.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.1 0l-3.25 3.5a.75.75 0 101.1 1.02l1.95-2.1v4.59z" clip-rule="evenodd" />
+                      </svg>
+                      MCDM Model.
+                    </dt>
+                    <dd class="inline">We harness Advanced MCDM Technology to provide real-time stock comparisons, unveiling a curated selection of top-performing stocks with unparalleled precision.</dd>
+                  </div>
+                  <div class="relative pl-9">
+                    <dt class="inline font-semibold text-gray-900">
+                      <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" />
+                      </svg>
+                      Risk Assessment.
+                    </dt>
+                    <dd class="inline">Enhancing Your Risk Insights: Unveiling optimal investment timelines informed by expert analysis and tailored to your risk profile.</dd>
+                  </div>
+                  <div class="relative pl-9">
+                    <dt class="inline font-semibold text-gray-900">
+                      <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path d="M4.632 3.533A2 2 0 016.577 2h6.846a2 2 0 011.945 1.533l1.976 8.234A3.489 3.489 0 0016 11.5H4c-.476 0-.93.095-1.344.267l1.976-8.234z" />
+                        <path fill-rule="evenodd" d="M4 13a2 2 0 100 4h12a2 2 0 100-4H4zm11.24 2a.75.75 0 01.75-.75H16a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75h-.01a.75.75 0 01-.75-.75V15zm-2.25-.75a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75H13a.75.75 0 00.75-.75V15a.75.75 0 00-.75-.75h-.01z" clip-rule="evenodd" />
+                      </svg>
+                      Investment Calculators.
+                    </dt>
+                    <dd class="inline">Discover a suite of Investment Calculators tailored to your financial goals, Empowering you to make informed choices aligned with your unique needs.</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+            <img src="{% static 'index-bg1.png' %}" alt="Product screenshot" class="w-[26rem] md:w-[44rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-300/10 sm:w-[57rem] md:-ml-4 lg:-ml-2 mt-20" width="626" height="626">
+          </div>
+        </div>
+      </div>
+      <div id="strategy" class="bg-white py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mx-auto max-w-2xl lg:text-center">
+            <h2 class="text-base font-semibold leading-7 text-indigo-600">Catapult Your Investment Progress</h2>
+            <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Everything you need to know</p>
+            <p class="mt-6 text-lg leading-8 text-gray-600">Effortlessly consolidate and manage all your requisite elements within a singular, meticulously designed platform.</p>
+          </div>
+          <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+            <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+              <div class="relative pl-16">
+                <dt class="text-base font-semibold leading-7 text-gray-900">
+                  <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                    </svg>
+                  </div>
+                  Clear Financial Goals
+                </dt>
+                <dd class="mt-2 text-base leading-7 text-gray-600">Before embarking on any investment journey, it's crucial to define clear and achievable financial goals. Whether it's retirement planning, wealth accumulation, buying a home, or funding education, having specific objectives in mind helps shape your investment strategy and risk tolerance.</dd>
+              </div>
+              <div class="relative pl-16">
+                <dt class="text-base font-semibold leading-7 text-gray-900">
+                  <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                    </svg>
+                  </div>
+                  Diversification Strategy
+                </dt>
+                <dd class="mt-2 text-base leading-7 text-gray-600">Diversifying your investment portfolio across various asset classes, industries, and geographic regions is a cornerstone of effective risk management. A well-diversified portfolio can help mitigate the impact of poor performance in any single investment and enhance long-term stability.</dd>
+              </div>
+              <div class="relative pl-16">
+                <dt class="text-base font-semibold leading-7 text-gray-900">
+                  <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                    </svg>
+                  </div>
+                  Informed Decision-Making
+                </dt>
+                <dd class="mt-2 text-base leading-7 text-gray-600">Educate yourself about different investment options, financial instruments, and market trends. Conduct thorough research or seek guidance from professionals to make informed decisions. Staying informed empowers you to seize opportunities and navigate challenges with confidence.</dd>
+              </div>
+              <div class="relative pl-16">
+                <dt class="text-base font-semibold leading-7 text-gray-900">
+                  <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
+                    </svg>
+                  </div>
+                  Personalized Financial Roadmap
+                </dt>
+                <dd class="mt-2 text-base leading-7 text-gray-600">Tailoring your investment and financial strategy to your unique circumstances, aspirations, and risk tolerance is paramount. A personalized approach ensures that every decision, from asset allocation to investment choices, aligns with your individual goals, ultimately leading to a more effective and rewarding financial journey.
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white">
+        <div class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
+          <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+            <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 animate-pulsate sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+              <circle cx="512" cy="512" r="512" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.4" />
+              <defs>
+                  <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
+                      <stop stop-color="#7775D6" />
+                      <stop offset="1" stop-color="#E935C1" />
+                  </radialGradient>
+              </defs>
+          </svg>
+          
+          
+            <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Elevate Your Financial Efficiency.<br>Start insvesting today.</h2>
+              <p class="mt-6 text-lg leading-8 text-gray-300">Explore our intuitive UI/UX, guiding you towards a personalized financial journey tailored to your distinct needs. Start right here.</p>
+              <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+                <a href="signup" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Get started</a>
+              </div>
+            </div>
+            <div class="relative mt-16 h-80 lg:mt-8">
+            </div>
+          </div>
+        </div>
+      </div>  
+      <section id="testimonial"class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-wrap -m-4">
+            <div class="p-4 md:w-1/2 w-full">
+              <div class="h-full bg-gray-100 p-8 rounded-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="block w-5 h-5 text-gray-400 mb-4" viewBox="0 0 975.036 975.036">
+                  <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                </svg>
+                <p class="leading-relaxed mb-6">"I am extremely impressed with the services provided by Pfinex for investment advisory. As someone deeply involved in the financial markets, I understand the importance of accurate and timely advice. Pfinex has consistently delivered on both fronts. I have no hesitation in recommending Pfinex to anyone seeking reliable and informed investment advice. Their dedication, expertise, and results speak for themselves. What sets Pfinex apart is their commitment to personalized service. Partnering with Pfinex has been a game-changer for me, and I am confident it can be the same for others looking to make informed investment decisions."</p>
+                <a class="inline-flex items-center">
+                  <img alt="testimonial" src="{% static 'RJ.jpeg.jpg' %}" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
+                  <span class="flex-grow flex flex-col pl-4">
+                    <span class="title-font font-medium text-gray-900">Rakesh Jhunjhunwala</span>
+                    <span class="text-gray-500 text-sm">Indian business magnate</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/2 w-full">
+              <div class="h-full bg-gray-100 p-8 rounded-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="block w-5 h-5 text-gray-400 mb-4" viewBox="0 0 975.036 975.036">
+                  <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                </svg>
+                <p class="leading-relaxed mb-6">"I am pleased to express my appreciation for the exceptional investment advisory services provided by Pfinex. In my journey as an investor and entrepreneur, I have always valued accurate and insightful advice, and Pfinex has consistently delivered on this front. I wholeheartedly recommend Pfinex to anyone seeking reliable and astute investment guidance. This level of dedication and attention to detail truly distinguishes Pfinex in the realm of investment advisory services. Their expertise, dedication, and track record of success make them a valuable partner for anyone looking to enhance their investment portfolio."</p>
+                <a class="inline-flex items-center">
+                  <img alt="testimonial" src="{% static 'Rakesh-Damai.jpg' %}" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
+                  <span class="flex-grow flex flex-col pl-4">
+                    <span class="title-font font-medium text-gray-900">Radhakishan Damani</span>
+                    <span class="text-gray-500 text-sm">Indian investor</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="bg-white dark:bg-gray-900">
+        <div class="mx-auto max-w-screen-xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-md">
+            <strong
+              class="block text-center text-xl font-bold text-gray-900 dark:text-white sm:text-3xl"
+            >
+              Want us to help you with the blockbuster financial planning?
+            </strong>
+
+            
+          </div>
+    
+    
+          <div
+          class=" mt-5  flex flex-col items-center gap-4 rounded-lg bg-indigo-600 p-6 shadow-lg sm:flex-row sm:justify-between"
+        >
+          <strong class="text-xl text-white sm:text-xl">
+            Make Your Next Career Move!
+          </strong>
+    
+          <a
+            class="inline-flex items-center gap-2 rounded-full border border-white bg-white px-8 py-3 text-indigo-600 hover:bg-transparent hover:text-white focus:outline-none focus:ring active:bg-white/90"
+            href="signup"
+          >
+            <span class="text-sm font-medium"> Let's Get Started </span>
+    
+            <svg
+              class="h-5 w-5 rtl:rotate-180"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </a>
+        </div>
+          
+          <div class="w-full mt-8 text-center items-center">
+            <a class="flex title-font font-medium items-center justify-center text-gray-900">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-indigo-500 p-2 bg-white rounded-full animate-bounce items-center" viewBox="0 0 24 24">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+              <span class="text-xl">Pfinex</span>
+            </a>
+            <p class="text-sm text-center text-gray-500">Your financial partner for success.</p>
+          </div>
+    
+          <div class="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-32">
+            <div class="mx-auto max-w-sm lg:max-w-none">
+              <p
+                class="mt-4 text-center text-gray-500 dark:text-gray-400 lg:text-left lg:text-lg"
+              >
+              Discover the power of financial freedom with Pfinex. Our mission is to provide innovative solutions for your financial success
+              </p>
+      
+              <div class="mt-6 flex justify-center gap-4 lg:justify-start">
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                  href=""
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only"> Facebook </span>
+      
+                  <svg
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+      
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                  href=""
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only"> Instagram </span>
+      
+                  <svg
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+      
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                  href=""
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only"> Twitter </span>
+      
+                  <svg
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                    />
+                  </svg>
+                </a>
+      
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                  href=""
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only"> GitHub </span>
+      
+                  <svg
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+      
+                <a
+                  class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                  href=""
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only"> Dribbble </span>
+      
+                  <svg
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+      
+            <div
+              class="grid grid-cols-1 gap-8 text-center lg:grid-cols-3 lg:text-left"
+            >
+              <div>
+                <strong class="font-medium text-gray-900 dark:text-white">
+                  Services
+                </strong>
+      
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                      href="/"
+                    >
+                      Market Stat
+                    </a>
+                  </li>
+      
+                  <li>
+                    <a
+                      class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                      href="/"
+                    >
+                      Fin. Planning
+                    </a>
+                  </li>
+      
+                  <li>
+                    <a
+                      class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                      href="/"
+                    >
+                      Calculators
+                    </a>
+                  </li>
+      
+    
+                </ul>
+              </div>
+      
+              <div>
+                <strong class="font-medium text-gray-900 dark:text-white">
+                  About
+                </strong>
+      
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                      href="/"
+                    >
+                      About
+                    </a>
+                  </li>
+      
+                  <li>
+                    <a
+                      class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                      href="/"
+                    >
+                      Careers
+                    </a>
+                  </li>
+      
+                  <li>
+                    <a
+                      class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                      href="/"
+                    >
+                      Our Team
+                    </a>
+                  </li>
+                </ul>
+              </div>
+      
+              <div>
+                <strong class="font-medium text-gray-900 dark:text-white">
+                  Support
+                </strong>
+      
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                      href="/"
+                    >
+                      FAQs
+                    </a>
+                  </li>
+      
+                  <li>
+                    <a
+                      class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                      href="/"
+                    >
+                      Contact
+                    </a>
+                  </li>
+      
+                  <li>
+                    <a
+                      class="text-gray-700 transition hover:text-gray-700/75 dark:text-white dark:hover:text-white/75"
+                      href="/"
+                    >
+                      Chat Bot
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      
+          <div class="mt-16 border-t border-gray-100 pt-8 dark:border-gray-800">
+            <p class="text-center text-xs/relaxed text-gray-500 dark:text-gray-400">
+              © Pfinex 2023. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+  </body>
+</html>

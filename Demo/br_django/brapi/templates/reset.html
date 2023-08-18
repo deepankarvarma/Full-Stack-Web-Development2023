@@ -1,0 +1,91 @@
+{% load tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome 5 CDN link to add icones -->
+    <title>Reset Password</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'br-logo.svg' %}">
+
+    <!-- Linking .css file with HTML page -->
+    <script>
+      document.getElementById("video-background").playbackRate = 0.5;
+    </script>
+    <style>
+      /* Additional styles for the video background */
+
+      #video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        opacity: 0.15;
+      }
+    </style>
+     <script>
+      function validateform()
+      {
+          
+          var cc='{{code}}';
+         
+          var abc= document.getElementById("codee").value;
+        if(cc==abc)
+        {
+          return true;
+        }
+        else {
+          alert("Incorrect Code Verification");
+          return false;
+        }
+        
+      }
+  </script>
+  {% tailwind_css %}
+</head>
+<body>
+  <video id="video-background" autoplay loop muted playsinline>
+    <source
+      src="{% static 'v4.mp4' %}"
+      type="video/mp4"
+      id="video-background"
+    />
+    <!-- Add more video formats here if needed -->
+    Your browser does not support the video tag.
+  </video>
+<div class="wrapper fadeInDown flex min-h-full flex-col justify-center pt-6 px-6 py-12 lg:px-8 lg:py-40">
+    <div id="formContent">
+      <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <img class="mx-auto h-10 w-auto" src="{% static 'br-logo.svg' %}" alt="Your Company">
+        <h2 class="active mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Verify Your Account</h2>
+      </div>
+  
+      <!-- Login Form -->
+      <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <form class="space-y-6" onsubmit="return validateform()" action="validate_new" name="vali"  method="POST">
+        {% csrf_token%}
+        <div>
+          <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Verfication Code</label>
+          <div class="mt-2">
+          <input type="number"  class="fadeIn second block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"  placeholder="Enter verification code" id="codee" name="code" required>
+        </div>
+        </div>
+        <div class="flex flex-row min-w-full space-x-4 justify-center">
+          <!-- <a href="\" class=" justify-center rounded-md bg-slate-200 px-3 py-1.5 text-sm font-semibold leading-6 text-indigo-700 shadow-sm hover:bg-slate-300 focus-visible:outline focus-visible:outline-2  focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Go Back</a> -->
+
+          <input type="submit" value="Verify" class="fadeIn fourth justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        </div>
+      </form>
+    </div>
+      <!-- Remind Passowrd -->
+      <!-- <div id="formFooter">
+        <a class="underlineHover" href="index.html">Go to login page</a>
+      </div> -->
+    </div>
+  </div>
+</body>

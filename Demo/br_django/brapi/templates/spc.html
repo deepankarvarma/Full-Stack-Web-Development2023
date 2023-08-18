@@ -1,0 +1,374 @@
+{% load tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" />
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+  </script>
+  <!-- <script src=
+"https://cdn.tailwindcss.com">
+    </script> -->
+  <title>SPC</title>
+  <link rel="icon" type="image/x-icon" href="{% static 'br-logo.svg' %}">
+
+  {% tailwind_css %}
+</head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+<script>
+  let storedData = null; // To store the fetched data
+  
+  async function fetchAndPlotStockData() {
+    const apiKey = '8K2zijhtlT3BrRJU4rpg8xXuALavuJs9';
+      const symbolInput = document.getElementById('default-search');
+      console.log('Symbol Input:', symbolInput.value);
+      const symbol = symbolInput.value.toUpperCase(); // Get and normalize user input
+      const apiUrl = `https://api.polygon.io/v2/aggs/ticker/AAPL/range/7/day/2023-01-09/2023-01-?apiKey='7LJiBrSvYqRwgE7ed1wpb778xVEuR7I2'`;
+      
+      try {
+        const response = await fetch(apiUrl);
+        if (response.ok) {
+              const data = await response.json();
+              storedData = data; // Store the fetched data
+              
+              const stockChart = document.getElementById('myChart');
+              const ctx = stockChart.getContext('2d');
+
+              // Extract necessary data from the API response
+              const timestamps = storedData.results.map(entry => entry.t);
+              const prices = storedData.results.map(entry => entry.c);
+
+              // Check if chart instance already exists
+              if (window.stockChartInstance) {
+                    // Update existing chart
+                    window.stockChartInstance.data.labels = timestamps;
+                    window.stockChartInstance.data.datasets[0].data = prices;
+                    window.stockChartInstance.update();
+                  } else {
+                    // Create a new chart instance
+                   // Create a new chart instance
+window.stockChartInstance = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: timestamps, // These are the timestamps from the API response
+        datasets: [{
+            label: 'Stock Price',
+            data: prices,
+            borderColor: 'blue',
+            fill: false,
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                type: 'time', // Use time scale for x-axis
+                time: {
+                    unit: 'year', // Display year only
+                    displayFormats: {
+                        year: 'YYYY' // Format for year display
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Year'
+                }
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: 'Stock Price'
+                }
+            }
+        },
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        const price = context.parsed.y;
+                        const date = context.parsed.x;
+                        return price.toFixed(2) + ' USD on ' + date.toDateString();
+                    }
+                }
+            }
+        }
+    }
+});
+
+              }
+
+              console.log('Graph plotted successfully.');
+          } else {
+              console.log('API is not working as expected.');
+          }
+      } catch (error) {
+          console.error('Error fetching or plotting stock data:', error);
+      }
+  }
+
+  function getStartDate() {
+      // Calculate the start date (e.g., 5 years ago from today)
+      const today = new Date();
+      const startDate = new Date(today);
+      startDate.setFullYear(today.getFullYear() - 5);
+      return startDate.toISOString().split('T')[0];
+    }
+    
+    function getCurrentDate() {
+      // Get current date in the format yyyy-mm-dd
+      const today = new Date();
+      return today.toISOString().split('T')[0];
+    }
+    
+    // Attach event listener to search button
+    const searchButton = document.getElementById('searchButton');
+    if (searchButton) {
+      searchButton.addEventListener('click', fetchAndPlotStockData);
+    }
+</script>
+
+
+<script>
+  function toggleMenu() {
+    const container = document.getElementById('profile_icon');
+    container.classList.toggle('hidden');
+  }
+  function toggleDB() {
+    const container = document.getElementById('db-title');
+    container.classList.toggle('hidden');
+  }
+</script>
+<body>
+ 
+  <!--
+  This example requires updating your template:
+  
+  
+  <html class="h-full bg-gray-100">
+  <body class="h-full">
+  
+  -->
+  <div class="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 justify-center">
+  <div class="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
+    <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"></div>
+  </div>
+  <div class="absolute left-[max(45rem,calc(50%+8rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl" aria-hidden="true">
+    <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30" style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)"></div>
+  </div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+  <a href="#" id="gainersBtn" class="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"> <span aria-hidden="true">&larr;</span></a>
+  <p id="textContent" class="text-sm leading-6 text-gray-900">
+    <strong class="font-semibold">Top Gainers</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>Join us in Denver from June 7 – 9 to see what’s coming next.
+  </p>
+  <a href="#" id="losersBtn" class="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"> <span aria-hidden="true">&rarr;</span></a>
+</div>
+
+<!-- ... (other code) ... -->
+</div>
+
+
+<nav class="bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button-->
+        <button onclick="toggleDB()" type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="absolute -inset-0.5"></span>
+          <span class="sr-only">Open main menu</span>
+          <!--
+            Icon when menu is closed.
+  
+            Menu open: "hidden", Menu closed: "block"
+          -->
+          <svg  class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <!--
+            Icon when menu is open.
+  
+            Menu open: "block", Menu closed: "hidden"
+          -->
+          <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex flex-shrink-0 items-center">
+          <img class="h-8 w-auto" src="{% static 'br-logo.svg' %}" alt="Your Company">
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <!-- <a href="" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a> -->
+            <a href="sip" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calculator</a>
+            <a href="topsis" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Topsis</a>
+            <a href="user" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Dashboard</a>
+            <a href="quiz" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Risk Cal.</a>
+            <a href="feature" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Financial Assistant</a>
+  
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+          <span class="absolute -inset-1.5"></span>
+          <span class="sr-only">View notifications</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+          </svg>
+        </button>
+  
+        <!-- Profile dropdown -->
+        <div class="relative ml-3">
+          <div>
+            <button onclick="toggleMenu()"  type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+              <span class="absolute -inset-1.5"></span>
+              <span class="sr-only">Open user menu</span>
+              <img class="h-8 w-8 rounded-full" src="{% static 'br-logo.svg'%}" alt="">
+            </button>
+          </div>
+  
+          <!--
+            Dropdown menu, show/hide based on menu state.
+  
+            Entering: "transition ease-out duration-100"
+              From: "transform opacity-0 scale-95"
+              To: "transform opacity-100 scale-100"
+            Leaving: "transition ease-in duration-75"
+              From: "transform opacity-100 scale-100"
+              To: "transform opacity-0 scale-95"
+          -->
+          <div id="profile_icon" class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+           
+            <a href="userprofile" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+            <a href="out" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div id="db-title" class="hidden sm:hidden" id="mobile-menu">
+    <div class="space-y-1 px-2 pb-3 pt-2">
+      <a href="sip" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Calculator</a>
+      <a href="topsis" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Topsis</a>
+      <a href="user" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Dashboard</a>
+      <a href="quiz" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Risk Calculator</a>
+      <a href="feature" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Financial Assistant</a>
+    </div>
+  </div>
+  </nav>
+
+
+
+<!-- component -->
+
+<!-- This is an example component -->
+<div class="mt-14 max-w-2xl mx-auto">
+
+	<form action="spc" method="post">   
+    {% csrf_token%}
+        <label for="default-search" class="bg-white-100 mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
+        <div class="relative">
+            <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+            <input name="search" type="text" id="default-search" class="block bg-white p-4 pl-10 w-full text-sm text-gray-900  rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." required>
+            <input id="searchButton" type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        </div>
+    </form>
+
+	<p class="mt-5 text-center">Used Stacked-LSTM Machine Learning Model For Time Series Based Data Forecasting depending on user input.
+	</p>
+  <p class="mt-5 font-bold text-center">X-Axis : Date , Y-Axis : Stock Price
+	</p>
+    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
+</div>
+  
+
+<div class="bg-white">
+    <div class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-16 lg:px-8">
+      <div class="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+        <!-- <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+          <circle cx="512" cy="512" r="512" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.7" />
+          <defs>
+            <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
+              <stop stop-color="#7775D6" />
+              <stop offset="1" stop-color="#E935C1" />
+            </radialGradient>
+          </defs>
+        </svg> -->
+        <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0" aria-hidden="true">
+            <circle cx="512" cy="512" r="512" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.7" />
+            <defs>
+                <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
+                    <stop stop-color="#7775D6" />
+                    <stop offset="1" stop-color="#E935C1" />
+                </radialGradient>
+            </defs>
+        </svg>
+        
+        
+        <div class="mx-auto max-w-7xl text-center lg:mx-0 lg:flex-auto lg:py-10 lg:text-left">
+          <h2 class=" text-3xl items-center text-center font-bold tracking-tight text-white sm:text-4xl">Stock Variations </h2>
+          <div>
+            <canvas id="myChart" ></canvas>
+
+
+            <script>
+                // Get the data from the Django context
+                console.log('{{data_points}}'.length);
+                var data_points = JSON.parse('{{ data_points }}');
+              // var data_points='{{data_points}}'
+                console.log(data_points);
+               // var data_points=[1,2,3]
+                // Create a line chart
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: Array.from({ length: data_points.length }, (_, i) => i + 1),
+                        datasets: [{
+                            label: 'Data Points',
+                            data: data_points,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
+          
+            
+        </div>
+          <!-- 
+          <p class="mt-6 text-lg leading-8 text-gray-300">Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla.</p>
+          <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+            <a href="#" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Get started</a>
+            <a href="#" class="text-sm font-semibold leading-6 text-white">Learn more <span aria-hidden="true">→</span></a> -->
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

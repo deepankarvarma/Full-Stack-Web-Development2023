@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@huggingface/tokenizers"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@huggingface/models"></script>
+  <title>Financial Assistant</title>
+  <link rel="icon" type="image/x-icon" href="{% static 'br-logo.svg' %}">
+
+</head>
+<body class="flex justify-center items-center h-screen bg-gray-100">
+
+<div class="w-3/4 mx-auto">
+  <div id="gradio-interface"></div>
+</div>
+
+<div>
+  <iframe
+    class="bg-gray-200 w-screen h-screen"
+    src="https://adityasrathore-financial-analyst-ai.hf.space"
+    frameborder="0"
+  ></iframe>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gradio@1.6.0/dist/gradio.min.js"></script>
+</body>
+</html>
